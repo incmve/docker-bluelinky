@@ -1,0 +1,15 @@
+{
+  "name": "docker-bluelinky",
+  "version": "0.0.1",
+  "description": "Running bluelinky on express in docker",
+  "scripts": {
+  },
+  "author": "Hacksore",
+  "license": "MIT",
+  "dependencies": {
+    "bluelinky": "^4.1.0",
+    "body-parser": "^1.19.0",
+    "express": "^4.17.1"
+  },
+  "homepage": "https://github.com/pwrangles/bluelinky-docker"
+}
