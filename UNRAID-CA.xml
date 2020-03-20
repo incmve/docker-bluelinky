@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <Container version="2">
   <Name>bluelinky</Name>
-  <Repository>https://github.com/wranglatang/docker-bluelinky</Repository>
+  <Repository>wranglatang/bluelinky</Repository>
   <Registry>https://hub.docker.com/repository/docker/wranglatang/bluelinky</Registry>
   <Network>bridge</Network>
   <MyIP/>
