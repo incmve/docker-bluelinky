@@ -34,14 +34,15 @@ const middleWare = async (req, res, next) => {
 
 app.use(middleWare);
 
-app.post('/start', async (req, res) => {
+// Start Climate at set temperature and for set period of time
+app.post('/start', async (req, res) => { 
   let response;
   try {
     await client.enterPin()
     response = await vehicle.start({
       airCtrl: true,
       igniOnDuration: 10,
-      airTempvalue: 20,
+      airTempValue: 20,
       defrost: false
     });
   } catch (e) {
@@ -52,6 +53,22 @@ app.post('/start', async (req, res) => {
   res.send(response);
 });
 
+// Stop Climate
+app.post('/stop', async (req, res) => {
+  let response;
+  try {
+    await client.enterPin()
+    response = await vehicle.stop();
+  } catch (e) {
+    console.log(e);
+    response = {
+      error: e.message
+    };
+  }
+  res.send(response);
+});
+
+// Lock the Car
 app.post('/lock', async (req, res) => {
   let response;
   try {
@@ -66,6 +83,22 @@ app.post('/lock', async (req, res) => {
   res.send(response);
 });
 
+// Unlock the Car
+app.post('/unlock', async (req, res) => {
+  let response;
+  try {
+    await client.enterPin()
+    response = await vehicle.unlock();
+  } catch (e) {
+    console.log(e);
+    response = {
+      error: e.message
+    };
+  }
+  res.send(response);
+});
+
+// Query status of the Car
 app.post('/status', async (req, res) => {
   let response;
   try {
