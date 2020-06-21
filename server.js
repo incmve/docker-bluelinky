@@ -38,11 +38,10 @@ app.use(middleWare);
 app.post('/start', async (req, res) => { 
   let response;
   try {
-    await client.enterPin()
     response = await vehicle.start({
       airCtrl: true,
       igniOnDuration: 10,
-      airTempValue: 20,
+      temperature: 20.0,
       defrost: false
     });
   } catch (e) {
@@ -57,7 +56,6 @@ app.post('/start', async (req, res) => {
 app.post('/stop', async (req, res) => {
   let response;
   try {
-    await client.enterPin()
     response = await vehicle.stop();
   } catch (e) {
     console.log(e);
@@ -72,7 +70,6 @@ app.post('/stop', async (req, res) => {
 app.post('/lock', async (req, res) => {
   let response;
   try {
-    await client.enterPin()
     response = await vehicle.lock();
   } catch (e) {
     console.log(e);
@@ -87,7 +84,6 @@ app.post('/lock', async (req, res) => {
 app.post('/unlock', async (req, res) => {
   let response;
   try {
-    await client.enterPin()
     response = await vehicle.unlock();
   } catch (e) {
     console.log(e);
@@ -102,7 +98,6 @@ app.post('/unlock', async (req, res) => {
 app.post('/status', async (req, res) => {
   let response;
   try {
-    await client.enterPin()
     response = await vehicle.status();
   } catch (e) {
     console.log(e);
