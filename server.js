@@ -98,7 +98,7 @@ app.post('/unlock', async (req, res) => {
 app.post('/status', async (req, res) => {
   let response;
   try {
-    response = await vehicle.status({ refresh: false, parsed: true });
+    response = await vehicle.status({ refresh: true, parsed: true });
   } catch (e) {
     console.log(e);
     response = {
